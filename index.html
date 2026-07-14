@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本代購報價</title>
+
+<style>
+body{
+    font-family:Arial;
+    max-width:500px;
+    margin:auto;
+    padding:30px;
+    text-align:center;
+}
+
+input{
+    width:100%;
+    font-size:28px;
+    padding:12px;
+}
+
+.result{
+    font-size:36px;
+    color:red;
+    margin-top:30px;
+    font-weight:bold;
+}
+
+button{
+    width:100%;
+    padding:18px;
+    margin-top:30px;
+    font-size:24px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>日本代購報價</h1>
+
+<input id="price"
+placeholder="請輸入日幣價格"
+oninput="calc()">
+
+<div class="result" id="answer">
+NT$0
+</div>
+
+<button onclick="order()">
+LINE下單
+</button>
+
+<script>
+
+function calc(){
+
+let jpy=Number(document.getElementById("price").value);
+
+let twd=Math.ceil((jpy*0.26+80)/5)*5;
+
+document.getElementById("answer").innerHTML="NT$"+twd;
+
+}
+
+function order(){
+
+let jpy=document.getElementById("price").value;
+
+let twd=Math.ceil((jpy*0.26+80)/5)*5;
+
+let text=
+`您好，我想委託代購
+
+商品價格：${jpy}円
+
+報價：NT$${twd}`;
+
+window.open(
+"https://line.me/R/oaMessage/@你的LINEID/?"+
+encodeURIComponent(text)
+);
+
+}
+
+</script>
+
+</body>
+</html>
