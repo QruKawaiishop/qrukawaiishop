@@ -69,7 +69,7 @@ function order(){
 
 let jpy=document.getElementById("price").value;
 
-let twd=Math.ceil((jpy*0.26+80)/5)*5;
+let twd=Math.ceil((jpy*0.25+80)/5)*5;
 
 let text=
 `您好，我想委託代購
@@ -79,7 +79,7 @@ let text=
 報價：NT$${twd}`;
 
 window.open(
-"https://line.me/R/oaMessage/@你的LINEID/?"+
+"https://line.me/R/oaMessage/@qru96/?"+
 encodeURIComponent(text)
 );
 
